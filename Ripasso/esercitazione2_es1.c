@@ -33,20 +33,20 @@ int main()
 	int max=scatola[0];//dichiarazione del max
     int min=scatola[0];//dichiarazione del min
     //trova il massimo e il minimo
-	i=1;
-	while(i<=n)
+	int i=1;
+	while(i<n)
 	{
+		//verifica max
 		if (scatola[i]>max)
 		{
 			max=scatola[i];
 		}
-		else
+		//verifica minimo
+		if (scatola[i]<min)
 		{
-			if (scatola[i]<min)
-			{
 				min=scatola[i];
-			}
 		}
+		
 		i++;
 	}//fine while
 
