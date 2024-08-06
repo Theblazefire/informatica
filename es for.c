@@ -12,7 +12,7 @@ int main()
 	{
 		for (int j = 1; j < 9; ++j)
 		{
-			printf("%d\n",i*10^1+j*10^0 );
+			printf("%d ",i*10^1+j*10^0 );
 		}
 	}
 	return 0;
