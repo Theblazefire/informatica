@@ -8,12 +8,11 @@
 #include <stdio.h>
 int main()
 {
-	for (int i = 0; i <= 9; ++i)
+	for (int i = 0; i <=9; ++i)//decine
 	{
-		for (int j = 1; j < 9; ++j)
+		for (int j = 0; j <=9; ++j)
 		{
-			printf("%d ",i*10^1+j*10^0 );
+			printf("%d\n", i*10+j);
 		}
 	}
-	return 0;
 }
