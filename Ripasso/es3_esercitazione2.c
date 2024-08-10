@@ -22,6 +22,25 @@ post-condizione (x...y) è composto da numeri interi non divisibili per 3
 #include <stdio.h>
 int main()
 {
+	int x,y;
+	printf("creo un insime il quale non contiene i divisori di 3\n");
+	printf("inserisci il minimo\n");
+	scanf_s("%d",&x);
+	printf("inserisci il massimo\n");
+	scanf_s("%d",&y);
+	int i=x;
+	while(i<=y)
+	{
+      if(!(i%3==0))
+      {
+      	printf("%d ", i);
+      }
+      i++;
+      
+
+
+	}//chiusura while
+
 	
 	return 0;
 }
