@@ -52,5 +52,8 @@ int main()
 
 	printf("il max = %d , min=%d\n",max,min );
 
+
+
+
 	return 0;
 }
