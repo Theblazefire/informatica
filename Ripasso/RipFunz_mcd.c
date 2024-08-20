@@ -10,7 +10,7 @@ post-condizione N= mcd(x,y)
 #include <stdio.h>
 int mcd(int Nx, int Ny)//Nx e Ny sono parametri Formali
 {
-	int Nbasso;//variabile che rapresenta il numero più piccolo
+	int Nbasso;//variabile (locale) che rapresenta il numero più piccolo
 	//trova il numero più piccolo
 	if (Nx>Ny)
 	{
