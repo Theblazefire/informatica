@@ -8,7 +8,7 @@ output N app Z
 post-condizione N= mcd(x,y)
 */
 #include <stdio.h>
-int mcd(int Nx, int Ny)//Nx e Ny sono parametri locali
+int mcd(int Nx, int Ny)//Nx e Ny sono parametri Formali
 {
 	int Nbasso;//variabile che rapresenta il numero più piccolo
 	//trova il numero più piccolo
@@ -36,7 +36,7 @@ int main ()//funzione principale
     printf("inserisci il secondo numero\n");
     int y;
     scanf_s("%d",&y);
-    int N=mcd(x,y);
+    int N=mcd(x,y);//evocazione della funz inseriti parametri attuali
     //output
     printf("Mcd = %d \n",N );
 }//end main
