@@ -22,8 +22,10 @@ int tripleSomma10(int sca[],int n)
 			q=0;
 		}
 		i++;
+
 	}
-return q;//restitusci valore
+//restitusci valore
+return q;
 }
 /*funz principale*/
 int main()
