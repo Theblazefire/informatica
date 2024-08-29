@@ -19,8 +19,8 @@ void doppiastringa(char* string)
 {
 	//conta la lunghezza lunghezza
 	int n=strlen(string);
-	//verifica se è pari la lunghezza
-	if (n%2==0)
+	//verifica se è pari la lunghezza  
+	if (n%2!=0)
 	{
 		printf("la stringa non e' pari\n");
 	}
@@ -43,7 +43,12 @@ int main()
 {
 	char string[50];
 		printf("inserisci una stringa\n");
+		//prendi la stringa
 		fgets(string,50,stdin);
+		//elimana \n dalla stringa inserita,
+		//sostituisci con fine stringa
+		string[strspn(stringa,'\n')]='\0';
+		
 		doppiastringa(string);
 	
 	return 0;
