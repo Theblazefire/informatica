@@ -17,7 +17,7 @@ dei tre elementi è
 pari alla somma degli altri due. se è falso
 non abbiamo somme degli elementi della terna 
 uguali hai elementi nella terna.
-
+0
 problema di tipo universale  
 */
 #include <stdio.h>
@@ -38,9 +38,9 @@ int sommaTriple(int scat[],int n)
 			q=0;
 		}
 		i++;
-		return q;
-	}
 
+	}//while
+  return q;
 }
 //funz principale
 int main()

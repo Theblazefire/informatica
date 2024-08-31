@@ -64,6 +64,6 @@ int main()
 	//prendi la stringa
 	fgets(string2,20,stdin);
 	canclettere(string2);
-
+	
 	return 0;
 }

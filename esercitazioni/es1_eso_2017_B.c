@@ -27,20 +27,21 @@ non è vero
 Problema di esistenza universare 
 (scatola[i]%(scatola[i+1]==0)||
 [-2, 6, 3, 9].. ..
-3 6 2 4
+3 6 
+2 4
 */
 #include<stdio.h>
 int adiacentiDivisibili(int scatola[],int n)
 {
 	int q=1;//variabile booleana
 	int i=0;//variabile contatore
-	while(i<n-2 && q)
+	while(i<n-1 && q)
 	{
 		/*if ((scatola[i]%scatola[i+1]!=0)||(scatola[i+1]%scatola[i]!=0))
 		{
 			q=0;
 		}*/
-		if ((scatola[i]%scatola[i+1]!=0)||(scatola[i+1]%scatola[i]!=0))
+		if ((scatola[i]%scatola[i+1]!=0))
 		{
 			q=0;
 		}

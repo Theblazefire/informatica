@@ -47,7 +47,7 @@ int main()
 		fgets(string,50,stdin);
 		//elimana \n dalla stringa inserita,
 		//sostituisci con fine stringa
-		string[strspn(stringa,'\n')]='\0';
+		string[strspn(string,'\n')]='\0';
 		
 		doppiastringa(string);
 	
