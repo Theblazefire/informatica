@@ -14,7 +14,7 @@ int tripleDuePari(int sca[],int n)
 	int q=1;//variabile booleana
 	int i=0;//contatore
 	while(i<n-2&&q)
-	{
+	{//1 4 5
 		if (
             !( 
             ((sca[i]%2==0)&&(sca[i+1]%2==0))||
