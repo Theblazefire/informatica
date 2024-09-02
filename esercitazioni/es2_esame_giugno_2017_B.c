@@ -7,14 +7,19 @@ void nienteDoppieMaiuscole(char* s)
 	//leggi stringa
 	while(s[i]!='\0')
 	{   //trova lettere maiuscole
-		if ((s[i]>='A'&&s[i]<='Z')&&(s[i]==s[i+1]))
+		if ((s[i]>='A'&&s[i]<='Z'))
 		{//aFq\0
 			//modifica la stringa quando a due lettere uguali
-				j=i;
-				while(s[j]!='\0')
+				if ((s[i]==s[i+1]))
 				{
-				s[i]=s[i+1];
-				j++;
+					j=i;
+				    while(s[j]!='\0')
+				    {
+				      s[j]=s[j+1];
+				    j++;
+				    
+				    }
+				
 			}
 		}
 		i++;
