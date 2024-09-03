@@ -45,11 +45,9 @@ int TripleDueNegDuePari(int sca[],int n)
 			(sca[i]%2==0&&sca[i+2]%2==0)||
 			(sca[i+1]%2==0&&sca[i+2]%2==0))
 			&&
-			(
-			 (sca[i]<0&&sca[i+1]<0)||
+			((sca[i]<0&&sca[i+1]<0)||
 			(sca[i]<0&&sca[i+2]<0)||
-			 (sca[i+1]<0&&sca[i+2]<0)
-			)
+			(sca[i+1]<0&&sca[i+2]<0))
 		   )
 		{
 			con=con+1;
