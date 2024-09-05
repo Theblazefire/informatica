@@ -32,4 +32,5 @@ int main()
 	printf("%s\n", stringa1	);
 	printf("%s\n", stringa2	);
 	return 0;
+	
 }
