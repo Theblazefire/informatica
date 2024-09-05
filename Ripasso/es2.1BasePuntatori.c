@@ -50,4 +50,9 @@ int main()//funzione principale
 	quoziente(num1,num2,quoz);
 	/*Ricava il resto*/
 	CalcolaResto(num1,num2,resto);
+	/*pulisci memoria*/
+	free(num1);
+	free(num2);
+	free(quoz);
+	free(resto);
 }
