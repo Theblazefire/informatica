@@ -25,7 +25,7 @@ int main()
 	char string[50];
 	fgets(string,50,stdin);
 	//( elimino \n)
-	string[strspn(string,"\n")]='\0';
+	string[strcspn(string,"\n")]='\0';
 
 	if(palindromo(string))
 	{

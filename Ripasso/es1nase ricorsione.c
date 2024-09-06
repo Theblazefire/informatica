@@ -14,11 +14,11 @@ int prodotoddo(int n1,int n2)
 {
 	int risult;
 	if (n2==0)
-	{//passo base
+	{//passo base 1 4 5 8
 		risult=0;
 	}
 	else
-	{//passo ricorsivo
+	{//passo ricorsivo 
 		risult=n1+prodotoddo(n1,n2-1);
 	}
 

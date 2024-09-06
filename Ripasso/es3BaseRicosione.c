@@ -5,7 +5,6 @@ int pari(int sca,int ind)
 	int q;
 	if (ind==0)
 	{//caso base 
-		
 		q=1;//deve essere positivo altrimenti non torna indietro
 	}
 	else
