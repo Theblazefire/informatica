@@ -1,40 +1,34 @@
 #include <stdio.h>
-int EsattamenteUnoPariGrande(int sca[],int n)
-{
-	int q;
+void EsattamenteUnoPariGrande(int sca[],int n,int maggior10,int pari)
+ {
+	
 	if (n==0)
 	{//caso base
-		q=1;
-	}
-	else
-	{//passo ricorsivo
-		if (// 17 12 16
-			(sca[n-1]<10)&&(sca[n-2]<10)||
-			(sca[n-2]<10)&&(sca[n-3]<10)
-		   )
+	if (maggior10==2&&pari==1)
 		{
-			q=0;
+			printf("1\n");
 		}
 		else
 		{
-			if (((sca[n-2]%2==0)&&(sca[n-3]%2!=0))||
-				((sca[n-2]%2!=0)&&(sca[n-3]%2==0))
-			   )
-			{
-				q=EsattamenteUnoPariGrande(sca,n-1);
-			}
-			if (((sca[n-2]%2==0)&&(sca[n-1]%2!=0))||
-				((sca[n-2]%2!=0)&&(sca[n-1]%2==0))
-			   )
-			{
-				q=EsattamenteUnoPariGrande(sca,n-1);
-			}
+			printf("0\n");
+		}	
+	}
+	else
+	{//passo ricorsivo 30 11 7
+		if (sca[n-1]>=10)
+		{
+			maggior10=maggior10+1;
+			if (sca[n-1]%2==0)
+		    {
+			  pari= pari+1;
+
+		    }
+			
 		}
 	}
+	EsattamenteUnoPariGrande(sca,n-1,maggior10,pari);
+ }
 
-
-	return q;
-}
 int main()//funzione principale
 {
 	int n=3;
@@ -46,13 +40,7 @@ int main()//funzione principale
 		printf("insersci %d elemento\n",i+1 );
 		scanf_s("%d",&scatola[i]);
 	}
-	if (EsattamenteUnoPariGrande(scatola,n))
-	{
-		printf("1\n");
-	}
-	else
-	{
-		printf("0\n");
-	}
+	EsattamenteUnoPariGrande(scatola,n,0,0);
+	
 	return 0;
 }
