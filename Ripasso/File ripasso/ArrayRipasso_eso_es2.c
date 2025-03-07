@@ -33,6 +33,10 @@ int main()
     {
     	printf("esiste una tripla uguale\n");
     }
+    else
+    {
+        printf("Non esiste una tripla uguale\n");	
+    }
 
 
 
