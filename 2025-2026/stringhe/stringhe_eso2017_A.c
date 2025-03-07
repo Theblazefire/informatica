@@ -5,14 +5,15 @@ void SoloAlfabetici(char* str)
 	int i=0,j=0;
 	while(str[i]!='\0')
 	{//trova carattere no alfabetico
-		if ( !( ( (str[i]>='a')&&(str[i]>='z') ) || ( (str[i]>='A')&&(str[i]>='Z') ) ) )
+		if ( !( ((str[i]>='a')&&(str[i]<='z')) || ((str[i]>='A')&&(str[i]>='Z')) || ((str[i]>='0')&&(str[i]<='9')) ) )
 		{
 			j=i;//imposta indice j
 			//sposta a caratere a destra 1a\0->11\0
 			while(str[j]!='\0')//leggi
 			{//asd1a
-				str[j]=str[j+1]
+				str[j]=str[j+1];
 				j++;
+				printf("%s\n", str);
 			}
 		}
 		else
