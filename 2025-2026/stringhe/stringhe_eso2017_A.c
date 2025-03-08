@@ -2,6 +2,7 @@
 #include <string.h>
 void SoloAlfabetici(char* str)
 {
+
 	int i=0,j=0;
 	while(str[i]!='\0')
 	{//trova carattere no alfabetico
@@ -23,6 +24,7 @@ void SoloAlfabetici(char* str)
 	
 	}
 
+
 }//chiusura solo alfabetici
 int main()
 {
@@ -31,7 +33,9 @@ char stringa[50];
 printf("inserisci una stringa\n");
 fgets(stringa,50,stdin);//prendi stringa
 stringa[strlen(stringa)-1]='\0';
+
 SoloAlfabetici(stringa);
 printf("%s\n",stringa);
 
-}//chiusura main
+
+	}//chiusura maiaan
