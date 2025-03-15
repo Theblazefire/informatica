@@ -1,5 +1,6 @@
 #include <stdio.h>
-	int verifica(int* sca,n,i)
+	
+	int verifica(int* sca,int n,int i)
 	{
 			int ris;
 			if (i+2==n)
@@ -23,18 +24,19 @@
 	}//chiusura verifica
 	int EssattamenteUnoPariGrande(int* sca,int n)
 	{
-	return verifica(sca,n,0);
+		int k= verifica(sca,n,0);
+	return k;
 	}
 int main()
 {
-	printf("sono un programma che controllo un tripla di elementi sopra o uguale al 10, uno dei quali e' pari");
-	printf("inserisci il numero dei elememti da inserire");
+	printf("sono un programma che controllo un tripla di elementi sopra o uguale al 10, uno dei quali e' pari\n");
+	printf("inserisci il numero dei elememti da inserire\n");
 	int n;
 	scanf("%d", &n);
 	int scatola[n];
 	for (int i = 0; i < n; i++)
 	{
-		printf("inserisci il %d",i+1);
+		printf("inserisci il %d\n",i+1);
 		scanf("%d",&scatola[i]);
 	}
 	if (EssattamenteUnoPariGrande(scatola,n))
