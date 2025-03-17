@@ -9,19 +9,17 @@ realizzata attraverso una funzione ricorsiva.
 */
 #include <stdio.h>
 #include <string.h>
-int solomaiuscole(char* str,int *i)
+int solomaiuscole(char* str,int i)
 {
-    int k=0;
     /*caso base*/
-    if (str[i]!='\0'&&k==1)
+    if (str[i]=='\0')
     {
-        k=1;
+        return 0;
     }
     else
     {//passo inditivo
-        k=(str[i]>='A'&&str[i]<='Z')&&solomaiuscole(str,i+1);
+        return (str[i]>='a'&&str[i]<='z')||solomaiuscole(str,i+1);
     }
-    return k;
 }
 int verifica(char* str)
 {
@@ -35,6 +33,11 @@ int main()
     /*Input*/
     fgets(stringa,50,stdin);//prendi la stringa
     stringa[strlen(stringa)-1]='\0';//elimina \n
-    verifica(stringa);
+    if(verifica(stringa))
+    {
+        printf("Ho trovato una maiuscola");
+    }
+    else
+        printf("Non trovato una maiuscola");
     return 0;
 }
