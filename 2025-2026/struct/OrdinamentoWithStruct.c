@@ -20,7 +20,7 @@ void ordina(PUNTO *sca,int n)
 		verifica=0;
 		for (int j = 0; j < NonOrdinato; j++)
 		{
-			if (sca[j+1]<sca[j])
+			if (distanza(&sca[j+1])<distanza(&sca[j]))
 			{
 				scambia(sca,j,j+1);
 				verifica=1;
@@ -29,10 +29,17 @@ void ordina(PUNTO *sca,int n)
 		}//chiusura for
 	}//chiusura while
 }//ordina
+float distanza(PUNTO* p)
+{
+	return sqrt( p->x*p->x + p->y*p->y );
+}
 void stampa(PUNTO *scatola,int n)
 {
-
-}
+	for (int i = 0; i < n; i++)
+	{
+		printf("punto (%2.f,%2.f) distanza = %2.f\n",scatola[i].x,scatola[i].y,distanza(&scatola[i]));
+	}
+}//chiusura stampa
 int main()
 {
 		printf("Ciao sono un programma che riordina un array di punti\n");
