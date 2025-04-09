@@ -87,7 +87,7 @@ int main()
         scanf_s("%d",&scatola[i]);//prendi il numero e mettilo nel puntatore
         i++;//incrementa l'indice del puntatore
         printf("inserisci y per continuare altrimenti n\n");
-        while (getchar()!='\0')//pulizia del buffer
+        while (getchar()!='\n')//pulizia del buffer
         {
             printf("buffer pulito");
         }
