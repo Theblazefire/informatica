@@ -1,0 +1,2 @@
+pane 1
+cocacola 1

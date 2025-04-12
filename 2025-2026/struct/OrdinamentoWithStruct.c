@@ -25,8 +25,9 @@ void ordina(PUNTO *sca,int n)
 				scambia(sca,j,j+1);
 				verifica=1;
 			}//chiusura if
-			NonOrdinato--;
+			
 		}//chiusura for
+		NonOrdinato--;
 	}//chiusura while
 }//ordina
 float distanza(PUNTO* p)
