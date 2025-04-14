@@ -1,2 +1,2 @@
-pane 1
-cocacola 1
+banane 6
+mele 10
