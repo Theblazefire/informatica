@@ -1,0 +1,1 @@
+gcc -g -Wall es4Esercitazione2.c -o es4Esercitazione2
