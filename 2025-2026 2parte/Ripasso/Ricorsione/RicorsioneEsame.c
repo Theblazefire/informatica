@@ -4,7 +4,7 @@ inserire una tripla la quale ha i numeri sopra il 10 e un numero pari
 
 #include <stdio.h>
 //funzione di verifica
-int verfico(int* sca,int n, int i)
+int verifico(int* sca,int n, int i)
 {
     int ris;
     /*CASO BASE*/
@@ -16,9 +16,23 @@ int verfico(int* sca,int n, int i)
     else
     {
         /*PASSO INDUTTIVO*/
-        ris=(//proprietà
+        ris=
+        (//proprietà 10 12 20; 10 11 11; 11 10 11; 11 11 10;
+            //-----prima parte numeri <10-----
+            ((sca[i]>=10&&sca[i+1]>=10)&&(sca[i]>=10&&sca[i+2]>=10)&&(sca[i+1]>=10&&sca[i+2]>=10))
+            &&
+            //-----prima parte almeno un numero pari-----
+            (
+            ((sca[i]%2==0)||(sca[i+1]%2==0)||(sca[i+2]%2==0))
+            &&
+            (
+               !(sca[i]%2==0||sca[i+1]%2==0)
+             ||!(sca[i]%2==0||sca[i+2]%2==0)
+             ||!(sca[i+1]%2==0||sca[i+2]%2==0)
+            )
+            )
 
-        )
+        )&&verifico(sca,n,i+1);//aumenta il contatore
     }
 
     
@@ -27,7 +41,7 @@ int verfico(int* sca,int n, int i)
 //funzione per aggiungere contatore
 int leggo(int* sca,int n)
 {
-    return verfico(sca,n,0);
+    return verifico(sca,n,0);
 }
 //funzione principale
 int main(){
@@ -42,8 +56,8 @@ int main(){
     printf("inserisci i numeri della tripla\n");
     for(int i=0;i<n;i++)
     {
-        printf("serisci %d numero della tripletta",i+1);
-        scanf("%d",scatola[i]);
+        printf("serisci %d numero della tripletta\n",i+1);
+        scanf("%d",&scatola[i]);
     }
 
         if(leggo(scatola,n))//chiamata funzione
@@ -52,7 +66,7 @@ int main(){
         }
         else
         {
-            print("0");
+            printf("0");
         }
 
     }
