@@ -11,7 +11,7 @@ int verifico(int* sca,int n, int i)
     if (i+2==n)
     {
         // Se siamo arrivati agli ultimi 2 elementi utilizzabili,
-        return ris=1;
+        ris=1;
     }
     else
     {
@@ -21,7 +21,7 @@ int verifico(int* sca,int n, int i)
             //-----prima parte numeri <10-----
             ((sca[i]>=10&&sca[i+1]>=10)&&(sca[i]>=10&&sca[i+2]>=10)&&(sca[i+1]>=10&&sca[i+2]>=10))
             &&
-            //-----prima parte almeno un numero pari-----
+            //-----seconda parte almeno un numero pari-----
             (
             ((sca[i]%2==0)||(sca[i+1]%2==0)||(sca[i+2]%2==0))
             &&
@@ -35,7 +35,7 @@ int verifico(int* sca,int n, int i)
         )&&verifico(sca,n,i+1);//aumenta il contatore
     }
 
-    
+    return ris;
 }
 
 //funzione per aggiungere contatore
