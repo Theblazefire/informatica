@@ -21,7 +21,7 @@ int verifico(int* sca,int n, int i)
             //-----prima parte numeri <10-----
             ((sca[i]>=10&&sca[i+1]>=10)&&(sca[i]>=10&&sca[i+2]>=10)&&(sca[i+1]>=10&&sca[i+2]>=10))
             &&
-            //-----seconda parte almeno un numero pari-----
+            //-----seconda\1 parte almeno un numero pari-----
             (
             ((sca[i]%2==0)||(sca[i+1]%2==0)||(sca[i+2]%2==0))
             &&
