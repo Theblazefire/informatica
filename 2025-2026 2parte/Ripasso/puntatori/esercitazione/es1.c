@@ -49,6 +49,30 @@ della divisione intera fra i due interi.
 */
 #include <stdio.h>
 #include <stdlib.h>
+void calcolaResto(int* dividendo, int* divisore, int* resto){
+		*resto=*dividendo% *divisore;
+		printf("Resto=%d\n",*resto);
+}
+
+//SVOLGI LA DIVISIONE
+void calcolaQuoziente(int* dividendo, int* divisore, int* quoziente){
+*quoziente= *dividendo / *divisore;
+printf("Svolgo la divisione\n%d / %d = %d \n",*dividendo,*divisore,*quoziente );
+}
+
+//ordina dal più grande al più piccolo
+void riordina(int* a, int* b){
+	if (*b>*a)
+	{
+		int c=*b;
+		*b=*a;
+		*a=c;
+		printf("Ordine crescente i numeri\n%d,%d\n",*a,*b );
+		// 1  20
+		// a   b
+	}
+} 
+
 //leggi input
 void leggiValore(int * variabile)
 {
@@ -66,9 +90,14 @@ int main()
 {
 	int* Pn1=allocaMemoria();
 	int* Pn2=allocaMemoria();
+	int* Q=allocaMemoria();
+	int* resto=allocaMemoria();
+	
 	printf("ciao sono un programma che fa divisioni\n");
 	leggiValore(Pn1);
 	leggiValore(Pn2);
-
+	riordina(Pn1,Pn2);
+	calcolaQuoziente(Pn1,Pn2,Q);
+	calcolaResto(Pn1,Pn2,resto);
 	return 0;
 }
