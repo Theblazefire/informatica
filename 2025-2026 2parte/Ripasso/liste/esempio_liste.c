@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+//nodo generico di tipo int
 struct Nodo
 {
 	int numero;
