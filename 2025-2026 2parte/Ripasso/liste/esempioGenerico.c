@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-struct nodo{
+
+typedef struct nodo{
     int n;
     struct nodo *next;
-};
-struct nodo *diventoTesta(struct nodo *head)
+}NODO;
+//##########################################################
+ NODO *diventoTesta(NODO *head)
 {
     //nuovo blocco
-    struct nodo *Pinizio= (struct nodo*)malloc(sizeof(struct nodo));
+    NODO *Pinizio= malloc(sizeof(struct nodo));
     printf("inserisci nella lista elementi interi\n");
     scanf("%d",&(Pinizio->n));
     //il blocco diventa testa
@@ -16,10 +18,10 @@ struct nodo *diventoTesta(struct nodo *head)
 }
 
 //inserisci coda
-struct nodo *diventaCoda(struct nodo *head)
+NODO *diventaCoda(NODO *head)
 {
     //nuovo blocco d-o-o-e
-    struct nodo *Pcoda=malloc(sizeof(struct nodo));
+    NODO *Pcoda=malloc(sizeof(struct nodo));
     printf("iniserisci elemento intero\n");
     scanf("%d",&(Pcoda->n));
     //il blocco diventa coda
@@ -32,7 +34,7 @@ struct nodo *diventaCoda(struct nodo *head)
     }
     else
     {
-        struct nodo *corrente=head;
+        NODO *corrente=head;
 
         while(corrente->next!=NULL)
         {
@@ -42,9 +44,9 @@ struct nodo *diventaCoda(struct nodo *head)
     }
     return head;
 }
-void stampalista(struct nodo *head)
+void stampalista(NODO *head)
 {
-    struct nodo *Plegge=head;
+    NODO *Plegge=head;
     
     if (Plegge==NULL)
     {
@@ -61,9 +63,9 @@ void stampalista(struct nodo *head)
     
     
 }
-struct nodo *cancellaTesta(struct nodo* head)
+NODO *cancellaTesta(NODO* head)
 {
-    struct nodo *Successivo;
+    NODO *Successivo;
     if (head==NULL)
     {
         printf("lista vuota non posso cancellare\n");
@@ -78,12 +80,33 @@ struct nodo *cancellaTesta(struct nodo* head)
     return Successivo;
     
 }
+
+void cancellaValore38(NODO  *head,int valore)
+{
+    NODO    butta;
+    int cancellato=0;
+    while(head->next!=NULL && !cancellato)
+    {/*trova il nodo cercato e collega il precedente con il
+        successivo e buttavia il corrente*/
+            if(head->next->numero==valore){
+                butta= head->next;
+                head->next=butta->next
+            }else{
+                head=head->next;
+            }
+    }
+
+    if (!cancellato )
+    {
+        printf("non e' nella lista\n");
+    }
+}
 int main()
 {
     
     int n;
     printf("creazione testa vuota lista\n");
-    struct nodo *head=NULL;
+    NODO *head=NULL;
     printf("creazione completata\n");
     /*menu funzioni*/
     while(n!=0){
