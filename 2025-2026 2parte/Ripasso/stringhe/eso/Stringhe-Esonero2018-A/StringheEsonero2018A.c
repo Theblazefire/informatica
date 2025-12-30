@@ -31,10 +31,9 @@ void verifica(char* str){
 		}
 		i++;
 	}
-
-    if (j > 0 && str[j - 1] == ' ')//elimina l'ultimo spazio
-        j--;
-
+	//elimina l'ultimo spazio| ↓ l'ultimo carattere è ' ' (spazio)?
+    if (j > 0 && str[j - 1] == ' ') j--;
+        //^-- verifica se è vuota la stringa
     str[j] = '\0';
 }
 
