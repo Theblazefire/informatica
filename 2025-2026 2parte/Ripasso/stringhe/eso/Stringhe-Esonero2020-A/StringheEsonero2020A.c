@@ -9,22 +9,21 @@ void sms(){
 	printf("rispetto la proprieta' se la stringa ricevuta come parametro %c 'ab12cde56ee78a67bb' -> '12cde5678a67'\n",135);
 	printf("inserire stringa\n");
 }
+
 int is_letter(char c){
 	return ( (c>='a'&&c<='z')||(c>='A'&&c<='Z') );
 }
+
+
 void viaParoleDaDue(char *str){
 	int i=0;
 	int j=0;
-	int count=0;
-	while(str[i]!='\0'){
-		if(is_letter(str[i])){
-			if(is_letter(str[i+1])) count++;
-			if(count!=2)str[j++]=str[i];
+	while(str[i]!='\0'&&str[i+1]!='\0'){
+		if(is_letter(str[i])&&str[i]==str[i+1]){
+			i+=2;
 		}else{
-			count=0;
-			str[j++]=str[i];
+			str[j++]=str[i++];
 		}
-		i++;
 	}
 	str[j]='\0';
 }
