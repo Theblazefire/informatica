@@ -71,7 +71,52 @@ int Soluzione_claud(int* sca, int n){
 }
 
 int pariGrandi(int* sca,int n){
+    int i=0;
+    int ver=0;// 1 21 34 2 4 56 5
+    while(i<n-2&&(!ver)){
+        int j=i+1;
+        while(j<n-1&&(!ver)){
+            int k=j+1;//reset k
+            while(k<n&&(!ver)){
+                int prim_num=sca[i];
+                int sec_num=sca[j];
+                int terz_num=sca[k];
+                int pari=0;
+                int magg_10=0;
+                //maggiori di 10
+                if(prim_num>10){
+                    magg_10++;
+                }
+                if (sec_num>10)
+                {
+                    magg_10++;
+                }
+                if (terz_num>10)
+                {
+                    magg_10++;
+                }
 
+                //pari?
+                if(prim_num%2==0){
+                    pari++;
+                }
+                if (sec_num%2==0)
+                {
+                    pari++;
+                }
+                if (terz_num%2==0)
+                {
+                    pari++;
+                }
+                //verifica
+                if((pari>=2)&&(magg_10>=2)) ver=1;
+                k++;
+            }
+            j++;
+        }
+        i++;
+    }
+    return ver;
 }
 int main(){
 	printf("ciao sono un programma che verifica se in una tripla contiene almeno due elementi pari e due maggiori di 10\n");
