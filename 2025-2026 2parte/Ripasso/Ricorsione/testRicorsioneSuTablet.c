@@ -4,7 +4,8 @@ verifica ricorsivamente una tripla che
 ha un numero positivo e due negativi 
 da compilare
 */
-int verifica(int*sca,int n,int i){
+
+/*int verifica(int*sca,int n,int i){
     int ris;
     if(i+2==n){
         ris=1;
@@ -16,17 +17,23 @@ int verifica(int*sca,int n,int i){
         )&&verifica(sca,n,i+1);
     }
     return ris;
+}*/
+int verifica(int*sca,int n,int i,int pos,int neg){
+    if (i==n) return pos==1&&neg==2;
+    return verifica(sca,n,i+1,
+                    pos+(sca[i]>0?1:0),
+                    neg+(sca[i]<0?1:0)
+                    );
 }
-
 int guardatripla(int* sca,int n){
-    return verifica(sca,n,0);
+    return verifica(sca,n,0,0,0);
 }
 int main(){
     printf("ciao sono un programma che verifica se esiste\nuna tripla con due numeri negativi e un positivo\n");
     printf("inserisci numero elementi");
     int n=0;
     scanf("%d",&n);
-    if(3<n){
+    if(n!=3){
         printf("non e' una tripla");
         }else{
             printf("leggo la tripla");
