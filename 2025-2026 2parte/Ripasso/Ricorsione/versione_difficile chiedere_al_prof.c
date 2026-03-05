@@ -4,26 +4,6 @@ verifica ricorsivamente una tripla che
 ha un numero positivo e due negativi 
 da compilare
 */
-
-int verifica(int*sca,int n,int i){
-    int ris;
-    if(i+2==n){
-        ris=1;
-    }else{
-        ris=( //a seconda della proprietà 
-        (sca[i]>=0 && (sca[i+1]<0&&sca[i+2]<0) )||
-        /*                   ^- se la proprietà influeza il caso o sotto 
-        caso tipo un numero negativo pari inserire la condizione nella 
-        parentesti
-        */
-        (sca[i+1]>=0 && (sca[i]<0&&sca[i+2]<0) )||
-        (sca[i+2]>=0 && (sca[i+1]<0&&sca[i]<0) )
-        )||verifica(sca,n,i+1);
-    }
-    return ris;
-}
-
-/*
 int verifica(int*sca,int n,int i,int pos,int neg){
     if (i==n) return pos==1&&neg==2;
     return verifica(sca,n,i+1,
@@ -33,10 +13,6 @@ int verifica(int*sca,int n,int i,int pos,int neg){
 }
 int guardatripla(int* sca,int n){
     return verifica(sca,n,0,0,0);
-}
-*/
-int guardatripla(int* sca,int n){
-    return verifica(sca,n);
 }
 int main(){
     printf("ciao sono un programma che verifica se esiste\nuna tripla con due numeri negativi e un positivo\n");
