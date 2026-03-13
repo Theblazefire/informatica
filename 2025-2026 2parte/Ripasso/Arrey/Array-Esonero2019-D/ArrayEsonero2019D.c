@@ -35,7 +35,8 @@ interi pari. altrimenti ver =0 negativo
 TIPO PROBLEMA:verifica universale 
 */
 #include <stdio.h>
-int TripleDueNegDuePari(int* sca, int n){
+int TripleDueNegDuePari(int* sca, int n)
+{
 	int ver=1;
 	int i=0;
 	int pari=0;
@@ -62,6 +63,7 @@ int TripleDueNegDuePari(int* sca, int n){
 	}
 	return ver;
 }
+
 int main(){
 	int n;
 	printf("inserisci lunghezza della sequensa\n");
@@ -75,7 +77,7 @@ int main(){
 			printf("inserisci il %d%c elemento\n", i+1,167);
 			scanf("%d",&sca[i]);
 		}
-
+//12 32  4
 		if (TripleDueNegDuePari(sca,n))
 		{
 			printf(":)\n");
