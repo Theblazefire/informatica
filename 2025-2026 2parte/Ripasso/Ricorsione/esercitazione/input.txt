@@ -1,0 +1,3 @@
+il Max:99
+elementi della sequenza
+12 1 100 12 

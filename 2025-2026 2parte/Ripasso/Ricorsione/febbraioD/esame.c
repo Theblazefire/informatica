@@ -30,16 +30,39 @@ secondo elemento della tripla.
 #include <stdio.h>
 #include <stdlib.h>
 int verificaSuccessioneRic(int* sca,int n,int i){
+	if (i>=n-2)
+	{
+		return 1;
+	}else{
+		return( sca[i]+sca[i+1]==sca[i+2]-sca[i+1]
+			)&&verificaSuccessioneRic(sca,n,i+1);
+	}
 
 }
 int verificaSuccessione(int* sca,int n){
 	return verificaSuccessioneRic(sca,n,0);
 }
 
-int main(){
-	int n;
-	int* scatola;
-	printf("inserisci lunghezza\n");
-	scanf("%d",&n);
-	scatola=(int*)scatola(m*sizeof(int));
+
+int main() {
+    int n;
+    int* scatola;
+
+    printf("Inserisci lunghezza: ");
+    scanf("%d", &n);
+
+    scatola = (int*)malloc(n * sizeof(int));  // fix 1
+
+    for (int i = 0; i < n; i++) {
+        printf("Inserisci elemento %d: ", i);
+        scanf("%d", &scatola[i]);             // fix 2
+    }
+
+    if (verificaSuccessione(scatola, n))      // fix 2
+        printf(":)\n");                        // fix 3
+    else
+        printf(":(\n");
+
+    free(scatola);
+    return 0;
 }
