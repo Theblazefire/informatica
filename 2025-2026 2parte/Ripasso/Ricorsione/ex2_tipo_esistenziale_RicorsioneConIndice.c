@@ -1,7 +1,7 @@
 #include <stdio.h>
 int verifica(int* sca,int n,int i){
 	int ris;
-	if (i>=n-1)
+	if (i>=n-1)//sistema il caso
 	{//2 4 7 8
 		ris=0;
 	}else{
