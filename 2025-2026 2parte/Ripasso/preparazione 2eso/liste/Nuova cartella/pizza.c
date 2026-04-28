@@ -43,12 +43,12 @@ typedef struct Nodo{
 void stampaPizza(NODO* head){
 	NODO* curr= *head;
 	printf("__Menu__\n\n");
-	while(curr->next!=NULL){
+	while(curr!=NULL){
 		printf("Pizza: %s    %2.f euro vegetariana? %s\n", (*curr)->info.nomePizza,(*curr)->info.prezzo,(*curr)->info.veg);	
 		curr=curr->next;
 	}
 }
-void inserimentoTesta(NODO* head){
+NODO* inserimentoTesta(NODO* head){
 	NODO nuovoNodo=malloc(sizeof(NODO));
 	if (nuovoNodo==NULL)
 	{
@@ -58,16 +58,13 @@ void inserimentoTesta(NODO* head){
 	//cambio testa
 	if (head==NULL)
 	{
-		/* code */
+		printf("lista vuota\n");
+	}else{
+		
 	}
 }
 int main(){
-	NODO* head=malloc(sizeof(NODO));
-	if (head==NULL)
-	{
-		printf("testa non allocata\n");
-	}
-
+	NODO* head=NULL;
 	int scelta= -1;
 	while(scelta!=0){
 		printf("inserisci\n\n");

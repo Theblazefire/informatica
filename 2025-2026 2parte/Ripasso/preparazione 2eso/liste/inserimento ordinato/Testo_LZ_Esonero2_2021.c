@@ -26,14 +26,14 @@ typedef struct L{
 	struct L* next;
 }NODO;
 void stampa(NODO* nodo){
-	while(nodo->next!=NULL){
+	while(nodo!=NULL){
 		printf("Titolo: %s\n",nodo->d.titolo);
 		printf("Autore: %s\n",nodo->d.autore);
 		printf("Anno: %d\n",nodo->d.anno );
 		nodo=nodo->next;
 	}
 }
-NODO inserimento_ordinato(NODO* head){
+NODO* inserimento_ordinato(NODO* head){
 	NODO* nuovoNodo=malloc(sizeof(NODO));
 	
 	printf("inserisci titolo (max 49 caratteri)\n");
@@ -55,7 +55,7 @@ NODO inserimento_ordinato(NODO* head){
 		head=nuovoNodo;
 	}else{
 		NODO* savePrec=NULL;
-		NODO* curr = *head; 
+		NODO* curr = head; 
 		while(curr!=NULL && strcmp(nuovoNodo->d.titolo,curr->d.titolo)>0){
 			savePrec=curr;
 			curr=curr->next;
@@ -66,7 +66,7 @@ NODO inserimento_ordinato(NODO* head){
 	return head;
 }
 
-NODO canc(NODO* head){
+NODO* canc(NODO* head){
 	if (head==NULL)//lista vuota
 	{
 		printf("error vedo NULL\n");
@@ -76,8 +76,8 @@ NODO canc(NODO* head){
 			free(head);
 			head=NULL;
 		}else{
-			NODO* curr= *head;
-			while(*curr->next->next!=NULL){
+			NODO* curr= head;
+			while(curr->next->next!=NULL){
 				curr=curr->next;
 			}
 			//arrivato all'ultimo
@@ -85,7 +85,7 @@ NODO canc(NODO* head){
 			curr->next=NULL;//cancello			
 		}
 	}
-
+	return head;
 }
 
 
@@ -93,16 +93,17 @@ int main(){
 	//inizializazione
 	NODO* head=NULL;
 	int scelta=-1;
-	printf("Menu Gestione dischi\n");
-	printf("\n--- MENU GESTIONE DISCHI ---\n");
-    printf("1. Inserisci nuovo disco\n");
-    printf("2. Visualizza tutti i dischi\n");
-    printf("3. Cancella l'ultimo disco\n");
-    printf("0. Esci\n");
-    printf("----------------------------\n");
-    printf("Seleziona un'opzione: ");
-        scanf_s("%d",&scelta);
+	
         while(scelta!=0){
+        	printf("Menu Gestione dischi\n");
+			printf("\n--- MENU GESTIONE DISCHI ---\n");
+    		printf("1. Inserisci nuovo disco\n");
+   		 	printf("2. Visualizza tutti i dischi\n");
+    		printf("3. Cancella l'ultimo disco\n");
+    		printf("0. Esci\n");
+    		printf("----------------------------\n");
+    		printf("Seleziona un'opzione: ");
+        		scanf_s("%d%*c",&scelta);
         	if (scelta==1)
         	{
         		head=inserimento_ordinato(head);
