@@ -5,8 +5,13 @@ typedef struct Nodo {
     int info;
     struct Nodo *next;
 } NODO;
+
 NODO* creaNodo(int x){
     NODO* nuovoNodo=malloc(sizeof(NODO));
+    if (nuovoNodo==NULL)
+    {
+        printf("error allocazione memoria\n");
+    }
     nuovoNodo->info=x;
     nuovoNodo->next=NULL;
     return nuovoNodo;
@@ -39,6 +44,7 @@ void printLista(NODO* head){
 NODO* cancellaPerValore(NODO* head,int x){
     
 }
+
 int main() {
     NODO* head=NULL;
     head=inserimentoInCoda(head,1);
