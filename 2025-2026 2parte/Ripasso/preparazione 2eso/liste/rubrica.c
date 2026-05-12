@@ -24,7 +24,7 @@ NODO* creaNodo(PERSONA x){
 	
 	return nuovoNodo;
 }
-
+/*
 NODO* inserInCoda(NODO* head,PERSONA p){
 	NODO* nuovoNodo= creaNodo(p);
 	if (head==NULL)
@@ -37,9 +37,25 @@ NODO* inserInCoda(NODO* head,PERSONA p){
 	}
 	curr->next=nuovoNodo;
 	return head;
+NULL
+[]->[|]->null
+}*/
 
+NODO* inserInCoda(NODO* head,PERSONA x){
+	NODO* nuovoNodo=creaNodo(x);
+	if (head==NULL)
+	{
+		return nuovoNodo;
+	}
+	NODO* curr=head;
+	while(curr->next!=NULL){
+		curr=curr->next;
+	}
+
+	curr->next=nuovoNodo;
+	return head;
 }
-
+/*
 NODO* inserTesta(NODO* head, PERSONA x){
 	NODO* nuovoNodo= creaNodo(x);
 	if (head==NULL)
@@ -50,8 +66,19 @@ NODO* inserTesta(NODO* head, PERSONA x){
 	nuovoNodo->next=head;
 	head=nuovoNodo;
 	return	head;
+}*/
+NODO* inserTesta(NODO* head,PERSONA x){
+	NODO* nuovoNodo=creaNodo(x);
+	if (head==NULL)
+	{
+		return nuovoNodo;
+	}
+	nuovoNodo->next=head;//attaco la nuova testa al primo nodo
+	head=nuovoNodo;//sovra scrivo
+	return head;
 }
 
+/*
 NODO* inserOrdinato(NODO* head, PERSONA	x){
 	NODO* nuovoNodo= creaNodo(x);
 	if (nuovoNodo==NULL)
@@ -67,7 +94,7 @@ NODO* inserOrdinato(NODO* head, PERSONA	x){
 	//cercalo nella lista
 	NODO* curr=head;
 	NODO* nodoPrec=NULL;
-	while(curr->next!=NULL && strcsmp(x.nome,curr->info.nome)>0){
+	while(curr->next!=NULL && strcmp(x.nome,curr->info.nome)>0){
 		nodoPrec=curr;
 		curr=curr->next;
 	}
@@ -75,7 +102,7 @@ NODO* inserOrdinato(NODO* head, PERSONA	x){
 	nodoPrec->next=nuovoNodo;
 	nuovoNodo->next=curr;
 	return head;
-}
+}*/
 void caricaLista(NODO*head){
 	FILE* fp= fopen("rubrica.dat","rb");
 	if (fp==NULL)
@@ -100,7 +127,145 @@ PERSONA inserContatto(){
 
 	return p;
 }
+//[12|*]->[0|*]->NULL
+/*
+void printLista(NODO* head){
+	if (head==NULL)
+	{
+		printf("lista vuota\n");
+	}else{
+		NODO* curr=head;
+		while(curr!=NULL){
+			printf("Persona %s\nNumero %d\n",curr->info.nome,curr->info.cellulare);
+			curr=curr->next;
+		}
+		printf("test\n\n");
+	}
+}*/
 
+void printLista(NODO* head){
+	if (head==NULL)
+	{
+		printf("inserisci contatto rubrica vuota\n");
+	}
+	NODO* curr=head;
+	while(curr!=NULL){
+		printf("%s __________ %d\n",curr->info.nome,curr->info.cellulare);
+		curr=curr->next;
+	}
+
+	printf("NULL\n");
+}
+/*
+NODO* cancValore(NODO* head, PERSONA x){
+	NODO* curr;
+	NODO* nodoPerc;
+	//in testa?
+	if (head!=NULL)
+	{
+		if (strcmp(head->info.nome,x.nome)==0)//se è vero solo uguali restituisce 0
+		{
+			curr=head;
+			head=head->next;//il secondo diventa il primo
+			free(curr);//mi libero la vecchia testa salvata in precedenza
+		}else{
+			int cancellato=0;//cancellato? (verifica)
+			curr=head->next;
+			nodoPerc=head;
+			while(curr!=NULL&&!cancellato){
+				if (strcmp(curr->info.nome,x.nome)==0)// se è vero solo uguali restituisce 0
+				{
+					nodoPerc->next=curr->next;//collegamento dal primo al terso
+					free(curr);//cancellazione 2
+					cancellato=1;//faccio la verifica
+				}else{
+					nodoPerc=curr;
+					curr=curr->next;
+				}
+			}
+		}
+	}
+	return head;
+}*/
+
+NODO* cancValore(NODO* head, PERSONA x){
+	NODO* curr;
+	NODO* nodoPrec;
+	if (strcmp(head->info.nome,x.nome)==0)
+	{
+		curr=head;
+		head=head->next;
+		free(curr);
+	}else{
+		curr=head->next;
+		nodoPrec=head;
+		cancelato=0;
+		while(curr!=NULL&&!cancelato){
+			if (strcmp(curr->info.nome,x.nome)==0)
+			{
+				nodoPrec->next=curr->next;
+				free(curr);
+				cancelato=1;
+			}else{
+				nodoPrec=curr;
+				curr=curr->next;
+			}
+		}
+	}
+	return	head;
+}
+
+NODO* cancHead(NODO* head){
+	if(head==NULL){
+		printf("lista vuota\n");
+		return NULL;
+	}
+
+	NODO* curr=head;
+	head=head->next;
+	free(curr);
+	return head;
+}
+/*
+NODO* cancTail(NODO* head){
+	if (head==NULL)
+	{
+		printf("lista vuota\n");
+	}
+
+	if (head->next==NULL)
+	{//[|*]->NULL
+		free(head);
+		return NULL;
+	}
+	NODO* curr=head;
+	while(curr->next->next!=NULL){
+		curr=curr->next;
+	}
+	free(curr->next);
+	curr->next=NULL;//completo il collegamento interroto da free
+	return head;
+}*/
+NODO* cancTail(NODO* head){
+	if (head==NULL)
+	{
+		printf("lista vuota\n");
+		return NULL;
+	}
+
+	if (head->next==NULL)
+	{
+		free(head);
+		return NULL;
+	}
+	NODO* curr=head;
+	while(curr->next->next!=NULL){
+		curr=curr->next;
+	}
+	free(curr->next);
+	curr->next=NULL;
+	return head;
+}
 int main(){
 	NODO* head = NULL;
 	int scelta = -1;
@@ -125,7 +290,7 @@ int main(){
 
 		if (scelta == 1)
 		{
-			printf("Lettura contatti non ancora implementata\n");
+			printLista(head);
 		}else{
 			if (scelta == 2)
 			{
@@ -145,19 +310,20 @@ int main(){
 						if (scelta == 5)
 						{
 							p=inserContatto();
-							head=inserimento_ordinato(head,p);
+							//head=inserimento_ordinato(head,p);
 						}else{
 							if (scelta == 6)
 							{
-								printf("Cancellazione contatto non ancora implementata\n");
+								p=inserContatto();
+								head=cancValore(head,p);
 							}else{
 								if (scelta == 7)
 								{
-									printf("Cancellazione primo contatto non ancora implementata\n");
+									head=cancHead(head);
 								}else{
 									if (scelta == 8)
 									{
-										printf("Cancellazione ultimo contatto non ancora implementata\n");
+										head=cancTail(head);
 									}else{
 										if (scelta == 9)
 										{
