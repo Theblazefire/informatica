@@ -189,41 +189,33 @@ NODO* cancValore(NODO* head, PERSONA x){
 }*/
 
 NODO* cancValore(NODO* head, PERSONA x){
-	NODO* curr;
 	NODO* nodoPrec;
-	if (strcmp(head->info.nome,x.nome)==0)
+	NODO* curr;
+	//se la lista è vuota
+	if (head!=NULL)
 	{
+		if (strcmp(head->info.nome,x.nome)==0)//==0 se è vera l'guaglianza
+		{
 		curr=head;
 		head=head->next;
 		free(curr);
-	}else{
-		curr=head->next;
-		nodoPrec=head;
-		cancelato=0;
-		while(curr!=NULL&&!cancelato){
-			if (strcmp(curr->info.nome,x.nome)==0)
-			{
-				nodoPrec->next=curr->next;
-				free(curr);
-				cancelato=1;
-			}else{
-				nodoPrec=curr;
-				curr=curr->next;
+		}else{
+			int cancellato=0;
+			curr=head->next;
+			nodoPrec=head;
+			while(curr!=NULL&&!cancellato){
+				if(strcmp(curr->info.nome,x.nome)==0)
+				{
+					nodoPrec->next=curr->next;
+					free(curr);
+					cancellato=1;
+				}else{
+					nodoPrec=curr;
+					curr=curr->next;
+				}
 			}
 		}
 	}
-	return	head;
-}
-
-NODO* cancHead(NODO* head){
-	if(head==NULL){
-		printf("lista vuota\n");
-		return NULL;
-	}
-
-	NODO* curr=head;
-	head=head->next;
-	free(curr);
 	return head;
 }
 /*
@@ -250,7 +242,6 @@ NODO* cancTail(NODO* head){
 	if (head==NULL)
 	{
 		printf("lista vuota\n");
-		return NULL;
 	}
 
 	if (head->next==NULL)
@@ -258,13 +249,14 @@ NODO* cancTail(NODO* head){
 		free(head);
 		return NULL;
 	}
+
 	NODO* curr=head;
 	while(curr->next->next!=NULL){
 		curr=curr->next;
 	}
 	free(curr->next);
-	curr->next=NULL;
-	return head;
+	curr->next=NULL
+	return	head;
 }
 int main(){
 	NODO* head = NULL;
